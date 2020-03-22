@@ -10,7 +10,6 @@ matrix:
         - pip3 install --upgrade pytest
         - pip3 install codecov
       env: PATH=/c/Python35:/c/Python35/Scripts:$PATH
-install:
-  - pip install -r /c/Users/travis/build/skarri-microsoft/cdbmongotests/etc/pip/dev-requirements.txt
 script:
-  - python /c/Users/travis/build/skarri-microsoft/cdbmongotests/buildscripts/resmoke.py --shellConnString="mongodb://mongospringtest:UaDekrU1i2ZTyJhJLgADPNOHzRdZ9l0wFXa1HUkNgKyuCOegWDkGElT5U0jY3KAjtBKBRtjOc9cvYCDmej9vqA%3D%3D@mongospringtest.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@mongospringtest@" --suites=core --continueOnFailure --mongo=/c/Users/travis/build/skarri-microsoft/cdbmongotests/bin/mongo.exe
+  - pip install -r etc/pip/dev-requirements.txt
+  - python buildscripts/resmoke.py --shellConnString="mongodb://mongospringtest:UaDekrU1i2ZTyJhJLgADPNOHzRdZ9l0wFXa1HUkNgKyuCOegWDkGElT5U0jY3KAjtBKBRtjOc9cvYCDmej9vqA%3D%3D@mongospringtest.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@mongospringtest@" --suites=core --continueOnFailure --mongo=bin/mongo.exe
