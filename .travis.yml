@@ -1,0 +1,17 @@
+matrix:
+  include:
+    - name: "Python 3.5.4 on Windows"
+      os: windows           # Windows 10.0.17134 N/A Build 17134
+      language: shell       # 'language: python' is an error on Travis CI Windows
+      before_install:
+        - choco install python --version 3.5.4
+        - python --version
+        - python -m pip install --upgrade pip
+        - pip3 install --upgrade pytest
+        - pip3 install codecov
+      env: PATH=/c/Python35:/c/Python35/Scripts:$PATH
+install:
+  - pip install -r .\etc\pip\dev-requirements.txt
+script:
+  - python .\buildscripts\resmoke.py --shellConnString="mongodb://mongospringtest:UaDekrU1i2ZTyJhJLgADPNOHzRdZ9l0wFXa1HUkNgKyuCOegWDkGElT5U0jY3KAjtBKBRtjOc9cvYCDmej9vqA%3D%3D@mongospringtest.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@mongospringtest@" --suites=core --continueOnFailure --mongo=.\bin\mongo.exe
+
