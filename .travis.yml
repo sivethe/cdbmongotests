@@ -12,4 +12,4 @@ matrix:
       env: PATH=/c/Python35:/c/Python35/Scripts:$PATH
 script:
   - cd etc/pip
-  - type dev-requirements.txt
+  - dir
