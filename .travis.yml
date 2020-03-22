@@ -13,3 +13,4 @@ matrix:
 script:
   - cd etc/pip
   - dir
+  - pwd
