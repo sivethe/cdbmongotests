@@ -10,6 +10,8 @@ matrix:
         - pip3 install --upgrade pytest
         - pip3 install codecov
       env: PATH=/c/Python35:/c/Python35/Scripts:$PATH
+install:
+  - pip install -r /c/Users/travis/build/skarri-microsoft/cdbmongotests/etc/pip/dev-requirements.txt
 script:
   - cd etc/pip
   - dir
