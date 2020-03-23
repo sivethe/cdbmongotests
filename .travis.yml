@@ -11,10 +11,9 @@ matrix:
         - pip3 install codecov
       env: PATH=/c/Python38:/c/Python38/Scripts:$PATH
 script:
+  - pip install -r etc/pip/dev-requirements.txt
   - curl  https://cosmosdbportalstorage.azureedge.net/emulator/2020_02_25_2.9.2-ae070d26/azure-cosmosdb-emulator-2.9.2-ae070d26.msi --output azure-cosmosdb-emulator-2.9.2-ae070d26.msi
   - ./InstallEmulator.exe
   - ./LaunchEmulator.exe
-  - pip install -r etc/pip/dev-requirements.txt
   - python buildscripts/resmoke.py --shellConnString="mongodb://localhost:C2y6yDjf5%2FR%2Bob0N8A7Cgv30VRDJIWEHLM%2B4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw%2FJw%3D%3D@localhost:10255/admin?ssl=true" --suites=core --continueOnFailure --mongo=bin/mongo.exe
   - python azureStorageUtil.py "$blobconnstr" "cdbmongotests" "report.json" "report.json"
-  `
