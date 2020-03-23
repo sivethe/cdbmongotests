@@ -12,4 +12,7 @@ matrix:
       env: PATH=/c/Python38:/c/Python38/Scripts:$PATH
 script:
   - pip install -r etc/pip/dev-requirements.txt
-  - python buildscripts/resmoke.py --shellConnString="mongodb://mongospringtest:UaDekrU1i2ZTyJhJLgADPNOHzRdZ9l0wFXa1HUkNgKyuCOegWDkGElT5U0jY3KAjtBKBRtjOc9cvYCDmej9vqA%3D%3D@mongospringtest.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@mongospringtest@" --suites=core --continueOnFailure --mongo=bin/mongo.exe
+  - curl  https://cosmosdbportalstorage.azureedge.net/emulator/2020_02_25_2.9.2-ae070d26/azure-cosmosdb-emulator-2.9.2-ae070d26.msi --output azure-cosmosdb-emulator-2.9.2-ae070d26.msi
+  - ./InstallEmulator.exe
+  - ./LaunchEmulator.exe
+  - python buildscripts/resmoke.py --shellConnString="mongodb://localhost:C2y6yDjf5%2FR%2Bob0N8A7Cgv30VRDJIWEHLM%2B4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw%2FJw%3D%3D@localhost:10255/admin?ssl=true" --suites=core --continueOnFailure --mongo=bin/mongo.exe
